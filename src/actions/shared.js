@@ -2,11 +2,11 @@ import { getInitialData } from '../utils/api';
 import { receiveQuestions } from './questions';
 import { receiveUsers } from './users';
 
-export function handleInitialData(userId) {
+export function handleInitialData() {
   return (dispatch) => {
-    return getInitialData().then(({ users, tweets }) => {
+    return getInitialData().then(({ users, questions }) => {
       dispatch(receiveUsers(users));
-      dispatch(receiveQuestions(tweets));
+      dispatch(receiveQuestions(questions));
     });
   };
 }
