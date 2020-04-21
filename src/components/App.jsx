@@ -10,10 +10,16 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <Dashboard />
+        {this.props.notLoggedIn ? <div>Login Page</div> : <Dashboard />}
       </div>
     );
   }
 }
 
-export default connect()(App);
+const mapStateToProps = ({ authedUser }) => {
+  return {
+    notLoggedIn: authedUser === null,
+  };
+};
+
+export default connect(mapStateToProps)(App);
