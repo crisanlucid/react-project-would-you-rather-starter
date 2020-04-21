@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { handleInitialData } from '../actions/shared';
 import Dashboard from './Dashboard';
+import Login from './Login';
 
 class App extends Component {
   componentDidMount() {
@@ -10,7 +11,7 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        {this.props.notLoggedIn ? <div>Login Page</div> : <Dashboard />}
+        {this.props.notLoggedIn ? <Login /> : <Dashboard />}
       </div>
     );
   }
