@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { handleInitialData } from '../actions/shared';
-import HomePage from './HomePage';
+import Dashboard from './Dashboard';
 
 class App extends Component {
   componentDidMount() {
@@ -10,7 +10,7 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <HomePage />
+        <Dashboard />
       </div>
     );
   }
