@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-class HomePage extends Component {
+class Dashboard extends Component {
   render() {
     console.log(this.props);
     return (
@@ -9,15 +9,15 @@ class HomePage extends Component {
         <nav className='nav nav--block'>
           <ul>
             <li>
-              <button className='btn active'>Link 1</button>
+              <button className='btn active'>unanswered 1</button>
             </li>
             <li>
-              <button className='btn '>Link 2</button>
+              <button className='btn '>answered 2</button>
             </li>
           </ul>
         </nav>
         <ul className='question-list'>
-          {this.props.questionIds.map((id) => (
+          {this.props.answered.map((id) => (
             <li key={id}>
               <div>Question ID: {id}</div>
             </li>
@@ -29,11 +29,14 @@ class HomePage extends Component {
 }
 
 const mapStateToProps = ({ questions }) => {
+  const answered = Object.keys(questions).sort(
+    (a, b) => questions[b].timestamp - questions[a].timestamp,
+  );
+  const unanswered = [];
   return {
-    questionIds: Object.keys(questions).sort(
-      (a, b) => questions[b].timestamp - questions[a].timestamp,
-    ),
+    answered,
+    unanswered,
   };
 };
 
-export default connect(mapStateToProps)(HomePage);
+export default connect(mapStateToProps)(Dashboard);
