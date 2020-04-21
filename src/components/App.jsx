@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { handleInitialData } from '../actions/shared';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { Grid } from 'semantic-ui-react';
+import { handleInitialData } from '../actions/shared';
 import Dashboard from './Dashboard';
 import Login from './Login';
+import Nav from './Nav';
 
 const WrapperGrid = ({ children }) => (
   <Grid padded='vertically' columns={1} centered>
@@ -19,11 +21,14 @@ class App extends Component {
   }
   render() {
     return (
-      <div className='App'>
-        <WrapperGrid>
-          {this.props.notLoggedIn ? <Login /> : <Dashboard />}
-        </WrapperGrid>
-      </div>
+      <Router>
+        <div className='App'>
+          <Nav />
+          <WrapperGrid>
+            {this.props.notLoggedIn ? <Login /> : <Dashboard />}
+          </WrapperGrid>
+        </div>
+      </Router>
     );
   }
 }
