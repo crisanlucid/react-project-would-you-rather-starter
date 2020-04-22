@@ -4,6 +4,7 @@ import { Tab } from 'semantic-ui-react';
 import UserCard from './UserCard';
 import PollPreview from './PollPreview';
 import PollQuestion from './PollQuestion';
+import PollResult from './PollResult';
 
 const color = {
   orange: {
@@ -41,6 +42,7 @@ const panes = ({ answeredQuestions, unansweredQuestions }) => {
                 color={color.blue.name}
               />
               <PollQuestion question={question} />
+              <PollResult question={question} />
             </UserCard>
           ))}
         </Tab.Pane>
