@@ -15,7 +15,6 @@ class PollQuestion extends Component {
     if (this.state.value !== '') {
       const { authedUser, question, dispatch } = this.props;
 
-      debugger;
       dispatch(
         handleSaveQuestionAnswer(authedUser, question.id, this.state.value),
       );
@@ -23,7 +22,7 @@ class PollQuestion extends Component {
   };
 
   render() {
-    const { question } = this.props;
+    const { question, color } = this.props;
     console.log(this.state.value);
     const disabled = this.state.value === '' ? true : false;
 
@@ -50,7 +49,7 @@ class PollQuestion extends Component {
           </Form.Field>
           <Form.Field>
             <Button
-              color='blue'
+              color={color}
               size='tiny'
               fluid
               basic

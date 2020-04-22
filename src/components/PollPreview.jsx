@@ -26,7 +26,7 @@ export class PollPreview extends Component {
           or...
         </p>
         <Button
-          color={color}
+          color={unanswered === true ? color.blue : color.orange}
           size='tiny'
           fluid
           onClick={this.handleClick}

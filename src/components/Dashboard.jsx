@@ -2,18 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Tab } from 'semantic-ui-react';
 import UserCard from './UserCard';
-import PollPreview from './PollPreview';
-import PollQuestion from './PollQuestion';
-import PollResult from './PollResult';
-
-const color = {
-  orange: {
-    name: 'orange',
-  },
-  blue: {
-    name: 'blue',
-  },
-};
 
 class Dashboard extends Component {
   render() {
@@ -35,15 +23,11 @@ const panes = ({ answeredQuestions, unansweredQuestions }) => {
       render: () => (
         <Tab.Pane>
           {unansweredQuestions.map((question) => (
-            <UserCard key={question.id} userId={question.author}>
-              <PollPreview
-                question={question}
-                unanswered={true}
-                color={color.blue.name}
-              />
-              <PollQuestion question={question} />
-              <PollResult question={question} />
-            </UserCard>
+            <UserCard
+              key={question.id}
+              questionId={question.id}
+              unanswered={true}
+            />
           ))}
         </Tab.Pane>
       ),
@@ -53,13 +37,11 @@ const panes = ({ answeredQuestions, unansweredQuestions }) => {
       render: () => (
         <Tab.Pane>
           {answeredQuestions.map((question) => (
-            <UserCard key={question.id} userId={question.author}>
-              <PollPreview
-                question={question}
-                unanswered={false}
-                color={color.orange.name}
-              />
-            </UserCard>
+            <UserCard
+              key={question.id}
+              questionId={question.id}
+              unanswered={false}
+            />
           ))}
         </Tab.Pane>
       ),
