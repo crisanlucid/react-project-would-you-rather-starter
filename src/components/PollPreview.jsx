@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Header, Button } from 'semantic-ui-react';
 
-export class QuestionCard extends Component {
+export class PollPreview extends Component {
   state = {
     viewPoll: false,
   };
@@ -37,4 +37,4 @@ export class QuestionCard extends Component {
   }
 }
 
-export default QuestionCard;
+export default PollPreview;
