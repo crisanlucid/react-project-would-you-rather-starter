@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Segment, Header, Grid, Image } from 'semantic-ui-react';
 
+//TODO:  show one of PollPreview || PollQuestion || PollResult
 export class UserCard extends Component {
   render() {
     const { user, children } = this.props;

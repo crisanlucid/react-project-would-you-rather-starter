@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Tab } from 'semantic-ui-react';
 import UserCard from './UserCard';
 import PollPreview from './PollPreview';
+import PollQuestion from './PollQuestion';
 
 const color = {
   orange: {
@@ -39,6 +40,7 @@ const panes = ({ answeredQuestions, unansweredQuestions }) => {
                 unanswered={true}
                 color={color.blue.name}
               />
+              <PollQuestion question={question} />
             </UserCard>
           ))}
         </Tab.Pane>
