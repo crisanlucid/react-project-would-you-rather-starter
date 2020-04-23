@@ -1,41 +1,65 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Tab } from 'semantic-ui-react';
+import UserCard from './UserCard';
 
 class Dashboard extends Component {
   render() {
-    console.log(this.props);
+    const { answeredQuestions, unansweredQuestions } = this.props;
+
     return (
-      <div className='question-wrapper center'>
-        <nav className='nav nav--block'>
-          <ul>
-            <li>
-              <button className='btn active'>unanswered 1</button>
-            </li>
-            <li>
-              <button className='btn '>answered 2</button>
-            </li>
-          </ul>
-        </nav>
-        <ul className='question-list'>
-          {this.props.answered.map((id) => (
-            <li key={id}>
-              <div>Question ID: {id}</div>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <Tab
+        panes={panes({ answeredQuestions, unansweredQuestions })}
+        className='tab'
+      />
     );
   }
 }
+const panes = ({ answeredQuestions, unansweredQuestions }) => {
+  return [
+    {
+      menuItem: 'Unanswered',
+      render: () => (
+        <Tab.Pane>
+          {unansweredQuestions.map((question) => (
+            <UserCard
+              key={question.id}
+              questionId={question.id}
+              unanswered={true}
+            />
+          ))}
+        </Tab.Pane>
+      ),
+    },
+    {
+      menuItem: 'Answered',
+      render: () => (
+        <Tab.Pane>
+          {answeredQuestions.map((question) => (
+            <UserCard
+              key={question.id}
+              questionId={question.id}
+              unanswered={false}
+            />
+          ))}
+        </Tab.Pane>
+      ),
+    },
+  ];
+};
 
-const mapStateToProps = ({ questions }) => {
-  const answered = Object.keys(questions).sort(
-    (a, b) => questions[b].timestamp - questions[a].timestamp,
-  );
-  const unanswered = [];
+const mapStateToProps = ({ questions, users, authedUser }) => {
+  const answeredIds = Object.keys(users[authedUser].answers);
+
+  const answeredQuestions = Object.values(questions)
+    .filter((question) => answeredIds.includes(question.id))
+    .sort((a, b) => b.timestamp - a.timestamp);
+  const unansweredQuestions = Object.values(questions)
+    .filter((question) => !answeredIds.includes(question.id))
+    .sort((a, b) => b.timestamp - a.timestamp);
   return {
-    answered,
-    unanswered,
+    answeredQuestions,
+    unansweredQuestions,
   };
 };
 

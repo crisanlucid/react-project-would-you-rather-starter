@@ -1,3 +1,4 @@
+import { generateUID } from './helpers';
 let users = {
   sarahedo: {
     id: 'sarahedo',
@@ -115,13 +116,6 @@ let questions = {
     },
   },
 };
-
-function generateUID() {
-  return (
-    Math.random().toString(36).substring(2, 15) +
-    Math.random().toString(36).substring(2, 15)
-  );
-}
 
 export function _getUsers() {
   return new Promise((res, rej) => {
