@@ -26,7 +26,7 @@ const MyVoteLabel = () => (
 class PollResult extends Component {
   handleClick = (e) => {
     e.preventDefault();
-    //TODO redirect to Home
+    this.props.history.push('/');
   };
 
   render() {
