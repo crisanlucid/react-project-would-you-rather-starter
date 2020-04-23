@@ -22,7 +22,6 @@ export class PollPreview extends Component {
 
       return <Redirect push to={`/questions/${question.id}`} />;
     }
-    console.log(this.state);
     return (
       <Fragment>
         <Header as='h5' textAlign='left'>

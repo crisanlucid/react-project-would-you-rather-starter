@@ -24,7 +24,6 @@ class PollQuestion extends Component {
 
   render() {
     const { question } = this.props;
-    console.log(this.state.value);
     const disabled = this.state.value === '' ? true : false;
 
     return (

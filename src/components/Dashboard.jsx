@@ -16,7 +16,6 @@ class Dashboard extends Component {
   }
 }
 const panes = ({ answeredQuestions, unansweredQuestions }) => {
-  console.log({ unansweredQuestions });
   return [
     {
       menuItem: 'Unanswered',

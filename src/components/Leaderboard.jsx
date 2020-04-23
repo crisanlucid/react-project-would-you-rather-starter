@@ -61,7 +61,6 @@ export class Leaderboard extends Component {
 
 function mapStateToProps({ users }) {
   const userList = findTopUsersLeaderboard(users);
-  console.log('userList', userList);
   return {
     userList,
   };
