@@ -18,8 +18,8 @@ class Nav extends Component {
         <Container>
           <Responsive as={Menu} minWidth={651} pointing secondary>
             <Menu.Item name='home' as={NavLink} to='/' exact />
-            <Menu.Item name='new question' as={NavLink} to='/#' />
-            <Menu.Item name='leader board' as={NavLink} to='/#' />
+            <Menu.Item name='new question' as={NavLink} to='/add' />
+            <Menu.Item name='leader board' as={NavLink} to='/leaderboard' />
             {authedUser && (
               <Menu.Menu position='right'>
                 <Menu.Item>
