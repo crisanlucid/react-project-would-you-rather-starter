@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Header, Button } from 'semantic-ui-react';
 import { Redirect } from 'react-router-dom';
+import { styles } from '../utils/helpers';
 
 export class PollPreview extends Component {
   state = {
@@ -12,7 +13,7 @@ export class PollPreview extends Component {
     }));
   };
   render() {
-    const { question, unanswered, color } = this.props;
+    const { question, unanswered } = this.props;
 
     if (this.state.viewPoll === true) {
       /* push will create a new entry to history instead of replacing
@@ -33,7 +34,7 @@ export class PollPreview extends Component {
           or...
         </p>
         <Button
-          color={unanswered === true ? color.blue : color.orange}
+          color={unanswered === true ? styles.primary.color : styles.tint.color}
           size='tiny'
           fluid
           onClick={this.handleClick}

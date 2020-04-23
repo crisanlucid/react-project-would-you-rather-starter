@@ -5,29 +5,19 @@ import PollQuestion from './PollQuestion';
 import PollResult from './PollResult';
 import PollPreview from './PollPreview';
 
+//actions for POLL
 const POLL_PREVIEW = 'POLL_PREVIEW';
 const POLL_QUESTION = 'POLL_QUESTION';
 const POLL_RESULT = 'POLL_RESULT';
-
-const color = {
-  orange: 'orange',
-  blue: 'blue',
-};
 
 const PollContainer = (props) => {
   const { pollType, question, unanswered } = props;
 
   switch (pollType) {
     case POLL_PREVIEW:
-      return (
-        <PollPreview
-          question={question}
-          unanswered={unanswered}
-          color={color}
-        />
-      );
+      return <PollPreview question={question} unanswered={unanswered} />;
     case POLL_QUESTION:
-      return <PollQuestion question={question} color={color.blue} />;
+      return <PollQuestion question={question} />;
     case POLL_RESULT:
       return <PollResult question={question} />;
     default:

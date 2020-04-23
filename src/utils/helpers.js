@@ -20,3 +20,17 @@ export function formatQuestion({ optionOneText, optionTwoText, author }) {
     },
   };
 }
+
+export const styles = {
+  primary: {
+    color: 'blue',
+    bgColor: 'aliceblue',
+  },
+  secondary: {
+    color: 'grey',
+    bgColor: '#eee',
+  },
+  tint: {
+    color: 'orange',
+  },
+};

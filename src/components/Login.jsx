@@ -10,6 +10,7 @@ import {
   Dimmer,
 } from 'semantic-ui-react';
 import { setAuthedUser } from '../actions/authedUser';
+import { styles } from '../utils/helpers';
 
 const LoginHeader = () => (
   <Header as='h4' block attached='top' textAlign='center'>
@@ -103,7 +104,7 @@ class LoginForm extends Component {
 
     return (
       <Form onSubmit={this.handleSubmit}>
-        <Header as='h1' color='blue'>
+        <Header as='h1' color={styles.primary.color}>
           Sign In
         </Header>
         <Form.Dropdown
@@ -116,7 +117,12 @@ class LoginForm extends Component {
           onChange={this.onChange}
           required
         />
-        <Form.Button content='Sign In' color='blue' disabled={disabled} fluid />
+        <Form.Button
+          content='Sign In'
+          color={styles.primary.color}
+          disabled={disabled}
+          fluid
+        />
       </Form>
     );
   }

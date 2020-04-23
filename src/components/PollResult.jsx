@@ -10,19 +10,10 @@ import {
   Icon,
 } from 'semantic-ui-react';
 
-const styles = {
-  primary: {
-    color: 'blue',
-    bgColor: 'ciel',
-  },
-  secondary: {
-    color: 'grey',
-    bgColor: '#eee',
-  },
-};
+import { styles } from '../utils/helpers';
 
 const MyVoteLabel = () => (
-  <Label color='orange' ribbon='right' className='vote'>
+  <Label color={styles.tint.color} ribbon='right' className='vote'>
     <Icon name='check circle outline' size='big' className='compact' />
     <div style={{ float: 'right' }}>
       Your

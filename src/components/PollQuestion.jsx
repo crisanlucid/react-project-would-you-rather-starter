@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Header, Button, Form, Radio } from 'semantic-ui-react';
 import { handleSaveQuestionAnswer } from '../actions/users';
+import { styles } from '../utils/helpers';
 
 class PollQuestion extends Component {
   state = {
@@ -22,7 +23,7 @@ class PollQuestion extends Component {
   };
 
   render() {
-    const { question, color } = this.props;
+    const { question } = this.props;
     console.log(this.state.value);
     const disabled = this.state.value === '' ? true : false;
 
@@ -49,10 +50,9 @@ class PollQuestion extends Component {
           </Form.Field>
           <Form.Field>
             <Button
-              color={color}
+              color={styles.primary.color}
               size='tiny'
               fluid
-              basic
               disabled={disabled}
               content='Submit'
             />
