@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Grid } from 'semantic-ui-react';
@@ -9,6 +9,7 @@ import Nav from './Nav';
 import UserCard from './UserCard';
 import NewQuestion from './NewQuestion';
 import Leaderboard from './Leaderboard';
+import NotFoundPage from './NotFoundPage';
 
 const WrapperGrid = ({ children }) => (
   <Grid padded='vertically' columns={1} centered>
@@ -36,7 +37,7 @@ class App extends Component {
                 <Route path='/questions/:question_id' component={UserCard} />
                 <Route path='/add' component={NewQuestion} />
                 <Route path='/leaderboard' component={Leaderboard} />
-                <Route render={() => <div>404 - Not Found Page</div>} />
+                <Route path='*' component={NotFoundPage} />
               </Switch>
             )}
           </WrapperGrid>
