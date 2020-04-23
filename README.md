@@ -9,6 +9,11 @@ Using the provided starter code, you'll build a React/Redux front end for the ap
 ## Install 
 The application requires only `npm install` and `npm start` to install and launch
 
+or 
+
+Using [yarn](https://yarnpkg.com/):
+
+`yarn && yarn start` 
 
 ## Data
 
