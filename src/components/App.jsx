@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Grid } from 'semantic-ui-react';
 import { handleInitialData } from '../actions/shared';
 import Dashboard from './Dashboard';
 import Login from './Login';
 import Nav from './Nav';
+import { UserCard } from './UserCard';
 
 const WrapperGrid = ({ children }) => (
   <Grid padded='vertically' columns={1} centered>
@@ -25,7 +26,15 @@ class App extends Component {
         <div className='App'>
           <Nav />
           <WrapperGrid>
-            {this.props.notLoggedIn ? <Login /> : <Dashboard />}
+            {this.props.notLoggedIn ? (
+              <Route render={() => <Login />} />
+            ) : (
+              <Switch>
+                <Route exact path='/' component={Dashboard} />
+                <Route path='/questions/:question_id' component={UserCard} />
+                <Route render={() => <div>404 - Not Found Page</div>} />
+              </Switch>
+            )}
           </WrapperGrid>
         </div>
       </Router>

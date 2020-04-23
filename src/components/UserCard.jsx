@@ -71,6 +71,7 @@ const mapStateToProps = ({ users, questions, authedUser }, { questionId }) => {
     pollType = POLL_PREVIEW;
   } else {
     //todo: take from the link match.params;
+    // if is a param in the URL path the question has been answered already
     question = questions[questionId];
     const user = users[authedUser];
 
