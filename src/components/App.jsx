@@ -8,6 +8,7 @@ import Login from './Login';
 import Nav from './Nav';
 import UserCard from './UserCard';
 import NewQuestion from './NewQuestion';
+import Leaderboard from './Leaderboard';
 
 const WrapperGrid = ({ children }) => (
   <Grid padded='vertically' columns={1} centered>
@@ -34,6 +35,7 @@ class App extends Component {
                 <Route exact path='/' component={Dashboard} />
                 <Route path='/questions/:question_id' component={UserCard} />
                 <Route path='/add' component={NewQuestion} />
+                <Route path='/leaderboard' component={Leaderboard} />
                 <Route render={() => <div>404 - Not Found Page</div>} />
               </Switch>
             )}
