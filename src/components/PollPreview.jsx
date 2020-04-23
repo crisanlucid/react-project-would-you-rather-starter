@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Header, Button } from 'semantic-ui-react';
+import { Redirect } from 'react-router-dom';
 
 export class PollPreview extends Component {
   state = {
@@ -13,7 +14,13 @@ export class PollPreview extends Component {
   render() {
     const { question, unanswered, color } = this.props;
 
-    //todo redirect to questions/:id
+    if (this.state.viewPoll === true) {
+      /* push will create a new entry to history instead of replacing
+       * https://reacttraining.com/react-router/web/api/Redirect
+       */
+
+      return <Redirect push to={`/questions/${question.id}`} />;
+    }
     console.log(this.state);
     return (
       <Fragment>

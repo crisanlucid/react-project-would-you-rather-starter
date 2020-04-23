@@ -34,7 +34,7 @@ const PollContainer = (props) => {
       return;
   }
 };
-export class UserCard extends Component {
+class UserCard extends Component {
   render() {
     const { author, question, pollType, unanswered = null } = this.props;
 
@@ -63,16 +63,19 @@ export class UserCard extends Component {
   }
 }
 
-const mapStateToProps = ({ users, questions, authedUser }, { questionId }) => {
+const mapStateToProps = (
+  { users, questions, authedUser },
+  { questionId, match },
+) => {
   let question, pollType;
-
   if (questionId !== undefined) {
     question = questions[questionId];
     pollType = POLL_PREVIEW;
   } else {
     //todo: take from the link match.params;
     // if is a param in the URL path the question has been answered already
-    question = questions[questionId];
+    let id = match.params.question_id;
+    question = questions[id];
     const user = users[authedUser];
 
     pollType = POLL_QUESTION;

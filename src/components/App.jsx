@@ -6,7 +6,7 @@ import { handleInitialData } from '../actions/shared';
 import Dashboard from './Dashboard';
 import Login from './Login';
 import Nav from './Nav';
-import { UserCard } from './UserCard';
+import UserCard from './UserCard';
 
 const WrapperGrid = ({ children }) => (
   <Grid padded='vertically' columns={1} centered>
