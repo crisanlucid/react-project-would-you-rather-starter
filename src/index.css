@@ -13,3 +13,10 @@ body,
 .ui.secondary.pointing.menu {
   border-bottom: none;
 }
+
+/* Logout */
+
+.btn-logout {
+  padding-bottom: 7px !important;
+  cursor: pointer;
+}

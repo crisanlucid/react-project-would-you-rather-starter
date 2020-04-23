@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Menu, Responsive, Image, Button, Container } from 'semantic-ui-react';
+import { Menu, Responsive, Image, List, Container } from 'semantic-ui-react';
 import { setAuthedUser } from '../actions/authedUser';
 
 class Nav extends Component {
@@ -32,11 +32,10 @@ class Nav extends Component {
                   />
                 </Menu.Item>
                 <Menu.Item>
-                  <Button
+                  <List.Item
                     content='Logout'
-                    labelPosition='right'
-                    basic
                     icon='log out'
+                    className='btn-logout'
                     onClick={this.handleLogout}
                   />
                 </Menu.Item>
