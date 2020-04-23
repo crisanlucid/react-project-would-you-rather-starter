@@ -31,7 +31,13 @@ export class NewQuestion extends Component {
 
     new Promise((resolve, reject) => {
       this.setState({ isLoading: true });
-      dispatch(handleAddQuestion(option1, option2, authedUser));
+      dispatch(
+        handleAddQuestion({
+          optionOneText: option1,
+          optionTwoText: option2,
+          authedUser,
+        }),
+      );
 
       setTimeout(() => resolve('success'), 1000);
     }).then(() => {

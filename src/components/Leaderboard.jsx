@@ -8,11 +8,7 @@ import {
   Label,
   Divider,
 } from 'semantic-ui-react';
-import {
-  styles,
-  countObjects,
-  findTopUsersLeaderboard,
-} from '../utils/helpers';
+import { styles, findTopUsersLeaderboard } from '../utils/helpers';
 
 const trophyColor = [...styles.trophy.color];
 
@@ -22,9 +18,9 @@ export class Leaderboard extends Component {
 
     return (
       <Fragment>
-        {userList.map((user, idx) => (
+        {userList.map((user, index) => (
           <Segment.Group key={user.id}>
-            <Label corner='left' icon='winner' color={trophyColor[idx]} />
+            <Label corner='left' icon='winner' color={trophyColor[index]} />
             <Grid divided padded>
               <Grid.Row>
                 <Grid.Column width={4} verticalAlign='middle'>
